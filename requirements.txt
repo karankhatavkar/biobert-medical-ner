@@ -1,0 +1,19 @@
+# pip fallback (use environment.yml with conda where possible).
+# On Apple Silicon the default torch wheel includes MPS GPU support.
+torch>=2.2
+transformers>=4.40,<5
+tokenizers
+sentencepiece
+safetensors
+numpy
+scikit-learn
+matplotlib
+pandas
+jupyterlab
+tqdm
+# Only for notebooks 01-02 (raw MACCROBAT -> BIO)
+seaborn
+nltk
+spacy
+wordcloud
+unidecode

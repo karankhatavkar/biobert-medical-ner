@@ -1,0 +1,20 @@
+# Trained model weights (large — regenerate with src/train.py or host externally)
+models/
+
+# Raw dataset (re-downloadable via notebook 00)
+data/MACCROBAT/
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+env/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Artifacts
+*.png

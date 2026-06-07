@@ -1,0 +1,33 @@
+# Conda environment for BioBERT Medical NER — Apple Silicon (MPS) ready.
+#
+#   conda env create -f environment.yml
+#   conda activate biobert-ner
+#
+# Everything comes from conda-forge so there is a single OpenMP runtime
+# (mixing conda numpy/sklearn with a pip-installed torch triggers the
+# "libomp already initialized" crash on macOS). conda-forge's pytorch
+# build includes the Apple Silicon GPU (MPS) backend.
+name: biobert-ner
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch>=2.2          # conda-forge osx-arm64 build ships the MPS backend
+  - transformers>=4.40,<5   # 5.x rejects the legacy BioBERT Hub config (no model_type)
+  - tokenizers
+  - sentencepiece          # required to build the BioBERT fast tokenizer from the Hub
+  - safetensors
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - pandas
+  - jupyterlab
+  - tqdm
+  # Only needed for notebooks 01–02 (raw MACCROBAT -> BIO); the core
+  # train/eval/predict path does not require these.
+  - seaborn
+  - nltk
+  - spacy
+  - wordcloud
+  - unidecode
